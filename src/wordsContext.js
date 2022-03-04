@@ -1,0 +1,27 @@
+import React, { useContext, useReducer } from "react";
+import wordsReducer from "./wordsReducer";
+import valid from './known.json';
+
+const WordsContext = React.createContext(null);
+
+let initialValid = valid;
+
+export function WordsProvider(props) {
+    const [words, dispatch] = useReducer(wordsReducer, initialValid);
+    const contextValue = {
+        words,
+        dispatch
+    };
+
+    return <WordsContext.Provider value={contextValue}>
+        {props.children}
+    </WordsContext.Provider>
+}
+
+export function useWords() {
+    const context = useContext(WordsContext);
+    if (!context) {
+        throw new Error("Use cart must be used within a words provider");
+    }
+    return context;
+}
