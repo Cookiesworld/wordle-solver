@@ -9,7 +9,7 @@ export default function wordsReducer(words, action) {
             var filteredWords = words;
             [...action.letters].forEach((c) => {
                 filteredWords = words.filter(x => {
-                    return x.indexOf(c) > 1
+                    return x.indexOf(c) >= 0
                 }
                 );
             });

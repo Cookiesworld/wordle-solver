@@ -1,6 +1,6 @@
 import React, { useContext, useReducer } from "react";
 import wordsReducer from "./wordsReducer";
-import valid from './known.json';
+import valid from './words.json';
 
 const WordsContext = React.createContext(null);
 
