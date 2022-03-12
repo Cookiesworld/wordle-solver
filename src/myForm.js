@@ -1,10 +1,10 @@
 import react from "react";
 
-export default function MyForm({ setLetters, letters }) {
+export default function MyForm({ setLetters, letters, label }) {
     return (
         <div>
             <form>
-                <label>Enter Letters
+                <label>{label}
                     <input type="text"
                         value={letters}
                         onChange={(e) => setLetters(e.target.value)}
