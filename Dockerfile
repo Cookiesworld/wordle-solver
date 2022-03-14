@@ -1,5 +1,5 @@
-FROM node:latest as builder
-ENV NODE_ENV production
+FROM node:latest as build-stage
+ENV NODE_ENV development
 
 # set working directory
 WORKDIR /app
@@ -8,22 +8,31 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
+COPY ["package.json", "package-lock.json", "./"]
+
 RUN npm install --production
 
 # add app
 COPY . .
 
 # start app
-CMD ["npm", "run build"]
+RUN npm run build
 
-FROM node:latest as production
+FROM nginx:latest as production
 ENV NODE_ENV production
+
+ARG TZ=Europe/London
+ENV TZ=$TZ
+ENV DEBIAN_FRONTEND=noninteractive
+#RUN -ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN dpkg-reconfigure tzdata
+
 # Add your nginx.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
+# replace with custom one
+COPY nginx/nginx.conf /etc/nginx/conf.d/
 # Copy built assets from builder
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=build-stage /app/build /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80
