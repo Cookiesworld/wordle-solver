@@ -13,7 +13,7 @@ export default function Solver() {
             <MyForm setLetters={enterExcludeLetters} letters={excludeletters} label='Enter Letters to exclude'></MyForm>
 
             <h3>Word count {words.length}</h3>
-            {words.map(word => <div key={word}>{word}</div>)}
+            {words.sort().map(word => <div key={word}>{word}</div>)}
 
         </section>
     );
