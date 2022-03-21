@@ -1,5 +1,3 @@
-import { WordsProvider } from "./wordsContext";
-
 export default function wordsReducer(words, action) {
     switch (action.type) {
         case "add":
