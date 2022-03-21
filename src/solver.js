@@ -1,33 +1,39 @@
-import React, { useState } from "react"
-import MyForm from "./myForm";
+import React from "react"
+import LetterInput from "./letterInput";
 import { useWords } from "./wordsContext";
 
 export default function Solver() {
-    const [letters, setLetters] = useState('');
-    const [excludeletters, setExcludeLetters] = useState('');
-    const { words, dispatch } = useWords();
 
+    const { words, dispatch } = useWords();
+    let letters = words.letters;
+    let excludeLetters = words.excludeLetters;
     return (
         <section>
-            <MyForm setLetters={enterLetters} letters={letters} label='Enter Letters'></MyForm>
-            <MyForm setLetters={enterExcludeLetters} letters={excludeletters} label='Enter Letters to exclude'></MyForm>
+            <div class="container">
+                <form>
+                    <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters'></LetterInput>
+                    <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude'></LetterInput>
+                </form>
+                <h3>Word count {words.filteredWords.length}</h3>
+                <div className="row">
 
-            <h3>Word count {words.length}</h3>
-            {words.sort().map(word => <div key={word}>{word}</div>)}
+                    {words.filteredWords.sort().map(word => <div className="col-sm-1" key={word}>{word}</div>)}
 
+                </div>
+            </div>
         </section>
     );
 
     function enterLetters(e) {
-        setLetters(e);
+        //setLetters(e);
         // reduce the words based on letters
         dispatch({ type: "filter", letters: e });
     }
 
     function enterExcludeLetters(e) {
-        setExcludeLetters(e);
+        //setExcludeLetters(e);
         // reduce the words based on letters
-        dispatch({ type: "exclude", letters: e });
+        dispatch({ type: "filter", excludeLetters: e });
     }
 }
 

@@ -1,30 +1,30 @@
+import { WordsProvider } from "./wordsContext";
+
 export default function wordsReducer(words, action) {
     switch (action.type) {
-        case "empty":
-            return [];
         case "add":
             // Return new array with the new item appended
             return [...words, action.value];
         case "filter":
-            var filteredWords = words;
-            [...action.letters].forEach((c) => {
-                filteredWords = words.filter(x => {
-                    return x.indexOf(c) >= 0
+            const letters = action.letters?.toLowerCase() || words.letters;
+            const excludeLetters = action.excludeLetters?.toLowerCase() || words.excludeLetters;
+
+            var filteredWords = words.words;
+            [...words.letters].forEach((c) => {
+                filteredWords = words.words.filter(x => {
+                    return x.indexOf(c.toLowerCase()) >= 0
                 }
                 );
             });
 
-            return filteredWords;
-        case "exclude":
-            var excludedWords = words;
-            [...action.letters].forEach((c) => {
-                excludedWords = words.filter(x => {
-                    return x.indexOf(c) === -1
+            [...words.excludeLetters].forEach((c) => {
+                filteredWords = words.words.filter(x => {
+                    return x.indexOf(c.toLowerCase()) === -1
                 }
                 );
             });
 
-            return excludedWords;
+            return { filteredWords: filteredWords, words: words.words, excludeLetters: excludeLetters, letters: letters }
 
         default:
             throw new Error("Unhandled action " + action.type);

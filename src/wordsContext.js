@@ -4,10 +4,16 @@ import valid from './words.json';
 
 const WordsContext = React.createContext(null);
 
-let initialValid = valid;
+let initialValid = {
+    words: valid,
+    letters: '',
+    excludeLetters: '',
+    filteredWords: valid
+}
 
 export function WordsProvider(props) {
     const [words, dispatch] = useReducer(wordsReducer, initialValid);
+
     const contextValue = {
         words,
         dispatch
