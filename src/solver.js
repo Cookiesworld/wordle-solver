@@ -1,5 +1,6 @@
 import React from "react"
 import LetterInput from "./letterInput";
+import Word from "./word";
 import { useWords } from "./wordsContext";
 
 export default function Solver() {
@@ -17,7 +18,7 @@ export default function Solver() {
                 <h3>Word count {words.filteredWords.length}</h3>
                 <div className="row">
 
-                    {words.filteredWords.sort().map(word => <div className="col-sm-1" key={word}>{word}</div>)}
+                    {words.filteredWords.sort().map(word => <Word word={word}></Word>)}
 
                 </div>
             </div>
@@ -27,13 +28,13 @@ export default function Solver() {
     function enterLetters(e) {
         //setLetters(e);
         // reduce the words based on letters
-        dispatch({ type: "filter", letters: e });
+        dispatch({ type: "filter", letters: e, excludeLetters: words.excludeLetters });
     }
 
     function enterExcludeLetters(e) {
         //setExcludeLetters(e);
         // reduce the words based on letters
-        dispatch({ type: "filter", excludeLetters: e });
+        dispatch({ type: "filter", excludeLetters: e, letters: words.letters });
     }
 }
 

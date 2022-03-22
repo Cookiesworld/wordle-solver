@@ -7,15 +7,15 @@ export default function wordsReducer(words, action) {
             const letters = action.letters?.toLowerCase() || words.letters;
             const excludeLetters = action.excludeLetters?.toLowerCase() || words.excludeLetters;
 
-            var filteredWords = words.words;
-            [...words.letters].forEach((c) => {
+            let filteredWords = words.words;
+            [...letters].forEach((c) => {
                 filteredWords = words.words.filter(x => {
                     return x.indexOf(c.toLowerCase()) >= 0
                 }
                 );
             });
 
-            [...words.excludeLetters].forEach((c) => {
+            [...excludeLetters].forEach((c) => {
                 filteredWords = filteredWords.filter(x => {
                     return x.indexOf(c.toLowerCase()) === -1
                 }

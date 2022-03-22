@@ -1,7 +1,7 @@
 export default function LetterInput({ setLetters, letters, label }) {
     return (
         <div className="mb-3 mt-3">
-            <label>{label}
+            <label for="">{label}
                 <input className="letters"
                     type="text"
                     value={letters}
