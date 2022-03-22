@@ -4,8 +4,8 @@ export default function wordsReducer(words, action) {
             // Return new array with the new item appended
             return [...words, action.value];
         case "filter":
-            const letters = action.letters?.toLowerCase() || words.letters;
-            const excludeLetters = action.excludeLetters?.toLowerCase() || words.excludeLetters;
+            const letters = action.letters?.toLowerCase();
+            const excludeLetters = action.excludeLetters?.toLowerCase();
 
             let filteredWords = words.words;
             [...letters].forEach((c) => {
