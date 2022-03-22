@@ -27,7 +27,7 @@ export function WordsProvider(props) {
 export function useWords() {
     const context = useContext(WordsContext);
     if (!context) {
-        throw new Error("Use cart must be used within a words provider");
+        throw new Error("Use words must be used within a words provider");
     }
     return context;
 }
