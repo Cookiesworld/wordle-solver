@@ -16,7 +16,7 @@ export default function wordsReducer(words, action) {
             });
 
             [...words.excludeLetters].forEach((c) => {
-                filteredWords = words.words.filter(x => {
+                filteredWords = filteredWords.filter(x => {
                     return x.indexOf(c.toLowerCase()) === -1
                 }
                 );
