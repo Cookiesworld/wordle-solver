@@ -15,3 +15,8 @@ code {
 input.letters {
   text-transform: lowercase;
 }
+
+input.single {
+  text-transform: lowercase;
+  width:1em;
+}

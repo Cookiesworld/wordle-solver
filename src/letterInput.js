@@ -8,8 +8,11 @@ export default function LetterInput({ setLetters, letters, label }) {
                     onChange={(e) => setLetters(e.target.value)}
                     pattern="[a-zA-Z]*"
                     title="Enter letters"
+                    maxLength={5}
                 />
             </label>
         </div>
     )
 }
+
+
