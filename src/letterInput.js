@@ -1,8 +1,8 @@
 export default function LetterInput({ setLetters, letters, label }) {
     return (
-        <div className="mb-3 mt-3">
-            <label for="">{label}
-                <input className="letters"
+        <div className="form-group col-md">
+            <label>{label}
+                <input className="form-control letters"
                     type="text"
                     value={letters}
                     onChange={(e) => setLetters(e.target.value)}
