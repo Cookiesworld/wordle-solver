@@ -8,7 +8,8 @@ let initialValid = {
     words: valid,
     letters: '',
     excludeLetters: '',
-    filteredWords: valid
+    filteredWords: valid,
+    positionalLetters: ['', '', '', '', '']
 }
 
 export function WordsProvider(props) {

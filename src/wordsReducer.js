@@ -15,6 +15,15 @@ export default function wordsReducer(words, action) {
                 );
             });
 
+            for (let i = 0; i < action.positional.length; i++) {
+                const l = action.positional[i].trim();
+                if (l !== '') {
+                    filteredWords = filteredWords.filter(x => {
+                        return x.indexOf(l.toLowerCase()) == i
+                    });
+                }
+            }
+
             [...excludeLetters].forEach((c) => {
                 filteredWords = filteredWords.filter(x => {
                     return x.indexOf(c.toLowerCase()) === -1
@@ -22,7 +31,7 @@ export default function wordsReducer(words, action) {
                 );
             });
 
-            return { filteredWords: filteredWords, words: words.words, excludeLetters: excludeLetters, letters: letters }
+            return { filteredWords: filteredWords, words: words.words, excludeLetters: excludeLetters, letters: letters, positionalLetters: action.positional }
 
         default:
             throw new Error("Unhandled action " + action.type);
