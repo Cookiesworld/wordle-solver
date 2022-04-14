@@ -24,7 +24,8 @@ export default function Solver() {
                     <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters' maxLength={5}></LetterInput>
                     <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude' maxLength={26}></LetterInput>
 
-                    <div className="input-group">
+                    <div className="input-group ">
+                        <label></label>
                         <div className="input-group-prepend">
                             <span class="input-group-text">Known Letters</span>
                         </div>
