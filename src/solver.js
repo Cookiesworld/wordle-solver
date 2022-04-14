@@ -35,7 +35,7 @@ export default function Solver() {
                 </form>
                 <h3>Word count {words.filteredWords.length}</h3>
                 <div className="row">
-                    {words.filteredWords.sort().map(word => <Word key={word} word={word}></Word>)}
+                    {words.filteredWords.sort().map(word => <Word key={word} word={word} letters={letters}></Word>)}
                 </div>
             </div>
         </section>

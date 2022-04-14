@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { WordsProvider } from './wordsContext';
 import ErrorBoundary from './ErrorBoundary';
+import { AppInsightsContextProvider } from './appInsightsContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <ErrorBoundary>
     <React.StrictMode>
-      <WordsProvider>
-        <App />
-      </WordsProvider>
+      <AppInsightsContextProvider>
+        <WordsProvider>
+          <App />
+        </WordsProvider>
+      </AppInsightsContextProvider>
     </React.StrictMode>
   </ErrorBoundary>,
   document.getElementById('root')
