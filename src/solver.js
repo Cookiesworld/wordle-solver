@@ -21,13 +21,16 @@ export default function Solver() {
         <section>
             <div className="container">
                 <form>
-                    <div className="form-row">
-                        <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters'></LetterInput>
-                        <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude'></LetterInput>
-                    </div>
-                    <div className="form-row">
+                    <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters' maxLength={5}></LetterInput>
+                    <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude' maxLength={26}></LetterInput>
+
+                    <div className="input-group">
+                        <div className="input-group-prepend">
+                            <span class="input-group-text">Known Letters</span>
+                        </div>
                         {final}
                     </div>
+
                 </form>
                 <h3>Word count {words.filteredWords.length}</h3>
                 <div className="row">

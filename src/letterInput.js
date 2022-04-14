@@ -1,6 +1,6 @@
-export default function LetterInput({ setLetters, letters, label }) {
+export default function LetterInput({ setLetters, letters, label, maxLength }) {
     return (
-        <div className="form-group col-md">
+        <div className="form-group">
             <label>{label}
                 <input className="form-control letters"
                     type="text"
@@ -8,7 +8,7 @@ export default function LetterInput({ setLetters, letters, label }) {
                     onChange={(e) => setLetters(e.target.value)}
                     pattern="[a-zA-Z]*"
                     title="Enter letters"
-                    maxLength={5}
+                    maxLength={maxLength}
                 />
             </label>
         </div>
