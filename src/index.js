@@ -12,11 +12,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <ErrorBoundary>
     <React.StrictMode>
-      <AppInsightsContextProvider>
-        <WordsProvider>
-          <App />
-        </WordsProvider>
-      </AppInsightsContextProvider>
+      <WordsProvider>
+        <App />
+      </WordsProvider>
     </React.StrictMode>
   </ErrorBoundary>,
   document.getElementById('root')
