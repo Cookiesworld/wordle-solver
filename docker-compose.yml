@@ -11,3 +11,6 @@ services:
       - ./src:/app/src
     ports:
       - 80:3000
+    environment:
+      - DEBUG=1
+      - REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY=4f12ac83-b6a4-4f23-92fb-e1ee862d6c3c
