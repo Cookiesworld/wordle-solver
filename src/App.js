@@ -1,7 +1,7 @@
 import './App.css';
 import Solver from './solver';
 
-function App() {
+const App = () => {
 
   return (
     <div className="App">

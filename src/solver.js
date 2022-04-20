@@ -1,10 +1,12 @@
+import { withAITracking } from "@microsoft/applicationinsights-react-js";
 import React from "react"
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 import Word from "./word";
 import { useWords } from "./wordsContext";
+import { reactPlugin, appInsights } from './appInsights';
 
-export default function Solver() {
+const Solver = () => {
 
     const { words, dispatch } = useWords();
     let letters = words.letters;
@@ -58,5 +60,7 @@ export default function Solver() {
         dispatch({ type: "filter", excludeLetters: words.excludeLetters, letters: words.letters, positional: words.positionalLetters });
     }
 }
+
+export default withAITracking(reactPlugin, Solver);
 
 

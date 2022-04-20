@@ -8,16 +8,13 @@ import ErrorBoundary from './ErrorBoundary';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AppInsightsContext } from './appInsightsContext';
 
 ReactDOM.render(
   <ErrorBoundary>
     <React.StrictMode>
-      <AppInsightsContext>
-        <WordsProvider>
-          <App />
-        </WordsProvider>
-      </AppInsightsContext>
+      <WordsProvider>
+        <App />
+      </WordsProvider>
     </React.StrictMode>
   </ErrorBoundary>,
   document.getElementById('root')
