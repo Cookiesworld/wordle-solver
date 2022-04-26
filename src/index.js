@@ -13,11 +13,9 @@ import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 ReactDOM.render(
   <ErrorBoundary>
     <React.StrictMode>
-      <AppInsightsContext>
-        <WordsProvider>
-          <App />
-        </WordsProvider>
-      </AppInsightsContext>
+      <WordsProvider>
+        <App />
+      </WordsProvider>
     </React.StrictMode>
   </ErrorBoundary>,
   document.getElementById('root')
