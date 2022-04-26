@@ -1,10 +1,12 @@
+import { withAITracking } from "@microsoft/applicationinsights-react-js";
 import React from "react"
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 import Word from "./word";
 import { useWords } from "./wordsContext";
+import { reactPlugin, appInsights } from './appInsights';
 
-export default function Solver() {
+const Solver = () => {
 
     const { words, dispatch } = useWords();
     let letters = words.letters;
@@ -24,7 +26,8 @@ export default function Solver() {
                     <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters' maxLength={5}></LetterInput>
                     <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude' maxLength={26}></LetterInput>
 
-                    <div className="input-group">
+                    <div className="input-group ">
+                        <label></label>
                         <div className="input-group-prepend">
                             <span class="input-group-text">Known Letters</span>
                         </div>
@@ -34,7 +37,7 @@ export default function Solver() {
                 </form>
                 <h3>Word count {words.filteredWords.length}</h3>
                 <div className="row">
-                    {words.filteredWords.sort().map(word => <Word key={word} word={word}></Word>)}
+                    {words.filteredWords.sort().map(word => <Word key={word} word={word} letters={letters}></Word>)}
                 </div>
             </div>
         </section>
@@ -57,5 +60,7 @@ export default function Solver() {
         dispatch({ type: "filter", excludeLetters: words.excludeLetters, letters: words.letters, positional: words.positionalLetters });
     }
 }
+
+export default withAITracking(reactPlugin, Solver);
 
 

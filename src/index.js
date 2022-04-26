@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { WordsProvider } from './wordsContext';
 import ErrorBoundary from './ErrorBoundary';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
