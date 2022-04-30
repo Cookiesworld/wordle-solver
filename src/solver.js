@@ -1,13 +1,13 @@
-import { withAITracking } from "@microsoft/applicationinsights-react-js";
+import { withAITracking, useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
 import React from "react"
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 import Word from "./word";
 import { useWords } from "./wordsContext";
-import { reactPlugin, appInsights } from './appInsights';
+import { reactPlugin } from './appInsights';
 
 const Solver = () => {
-
+    const appInsights = useAppInsightsContext();
     const { words, dispatch } = useWords();
     let letters = words.letters;
     let excludeLetters = words.excludeLetters;
@@ -29,7 +29,7 @@ const Solver = () => {
                     <div className="input-group ">
                         <label></label>
                         <div className="input-group-prepend">
-                            <span class="input-group-text">Known Letters</span>
+                            <span className="input-group-text">Known Letters</span>
                         </div>
                         {final}
                     </div>

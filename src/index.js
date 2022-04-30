@@ -11,13 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 
 ReactDOM.render(
-  <ErrorBoundary>
-    <React.StrictMode>
-      <WordsProvider>
-        <App />
-      </WordsProvider>
-    </React.StrictMode>
-  </ErrorBoundary>,
+  <React.StrictMode>
+    <WordsProvider>
+      <App />
+    </WordsProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

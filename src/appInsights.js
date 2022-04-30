@@ -8,6 +8,7 @@ const reactPlugin = new ReactPlugin();
 const appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: key,
+        enableAutoRouteTracking: true,
         extensions: [reactPlugin],
         extensionConfig: {
             [reactPlugin.identifier]: { history: browserHistory }

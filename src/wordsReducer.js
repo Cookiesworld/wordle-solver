@@ -19,7 +19,7 @@ export default function wordsReducer(words, action) {
                 const l = action.positional[i].trim();
                 if (l !== '') {
                     filteredWords = filteredWords.filter(x => {
-                        return x.indexOf(l.toLowerCase()) === i
+                        return x.indexOf(l.toLowerCase(), i) === i
                     });
                 }
             }
