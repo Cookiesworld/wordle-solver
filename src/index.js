@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { WordsProvider } from './wordsContext';
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WordsProvider>
-      <App />
-    </WordsProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
