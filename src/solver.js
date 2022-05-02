@@ -23,8 +23,8 @@ const Solver = () => {
         <section>
             <div className="container">
                 <form>
-                    <LetterInput setLetters={enterLetters} letters={letters} label='Enter Letters' maxLength={5}></LetterInput>
-                    <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter Letters to exclude' maxLength={26}></LetterInput>
+                    <LetterInput setLetters={enterLetters} letters={letters} label='Enter letters' maxLength={5}></LetterInput>
+                    <LetterInput setLetters={enterExcludeLetters} letters={excludeLetters} label='Enter letters to exclude' maxLength={26}></LetterInput>
 
                     <div className="input-group ">
                         <label></label>
