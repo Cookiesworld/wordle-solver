@@ -1,4 +1,3 @@
-import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
@@ -17,7 +16,9 @@ const appInsights = new ApplicationInsights({
 });
 appInsights.loadAppInsights();
 
-export default Component => withAITracking(reactPlugin, Component);
+export default function (Component) {
+    return withAITracking(reactPlugin, Component);
+};
 export { appInsights };
 export { reactPlugin };
 

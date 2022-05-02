@@ -1,8 +1,9 @@
 import React from "react"
+import { Col } from "react-bootstrap"
 
-export default function word({ word, letters }) {
+export default function word({ word }) {
 
     return (
-        <div className="sm" key={word}>{word}</div>
+        <Col className="sm" key={word}>{word}</div>
     )
 }

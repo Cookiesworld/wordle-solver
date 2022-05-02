@@ -5,9 +5,9 @@ import SingleLetterInput from "./singleLetterInput";
 import Word from "./word";
 import { useWords } from "./wordsContext";
 import { reactPlugin } from './appInsights';
+import { Row } from "react-bootstrap";
 
 const Solver = () => {
-    const appInsights = useAppInsightsContext();
     const { words, dispatch } = useWords();
     let letters = words.letters;
     let excludeLetters = words.excludeLetters;
@@ -36,9 +36,9 @@ const Solver = () => {
 
                 </form>
                 <h3>Word count {words.filteredWords.length}</h3>
-                <div className="row">
+                <Row>
                     {words.filteredWords.sort().map(word => <Word key={word} word={word} letters={letters}></Word>)}
-                </div>
+                </Row>
             </div>
         </section>
     );

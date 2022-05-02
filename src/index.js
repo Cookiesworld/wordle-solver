@@ -4,11 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { WordsProvider } from './wordsContext';
-import ErrorBoundary from './ErrorBoundary';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 
 ReactDOM.render(
   <React.StrictMode>
