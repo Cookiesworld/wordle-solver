@@ -1,6 +1,7 @@
 name: Linux Container Node Workflow
 
 on: [push]
+ 
 
 jobs:
   build:
@@ -13,11 +14,10 @@ jobs:
       with:
         login-server: cookie.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-        REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY: ${{ secrets.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY }}
+        password: ${{ secrets.REGISTRY_PASSWORD }} 
 
     - run: |
-        docker build . -t cookie.azurecr.io/wordle-node:${{ github.sha }}
+        docker build . -t cookie.azurecr.io/wordle-node:${{ github.sha }} --build-arg=API_KEY=${{ secrets.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY }} -q 
         docker push cookie.azurecr.io/wordle-node:${{ github.sha }}     
 
     - uses: azure/webapps-deploy@v2
