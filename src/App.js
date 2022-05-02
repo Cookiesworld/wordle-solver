@@ -11,9 +11,16 @@ const App = () => {
       <header className="App-header">
         <h1>Wordle Helper</h1>
       </header>
-      <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+      <AppInsightsErrorBoundary onError={() => <h1>Something went wrong</h1>} appInsights={reactPlugin}>
         <Solver />
       </AppInsightsErrorBoundary>
+
+      <footer>
+        <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
+        <form>
+          <input type="hidden" defaultValue={process.env.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY} />
+        </form>
+      </footer>
     </div>
   );
 }
