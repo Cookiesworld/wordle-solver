@@ -55,6 +55,7 @@ jobs:
         push: true
         tags: cookie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2de0e5fe1f1543c28eaf7ffea7447ea7 }}/wordle-node:${{ github.sha }}
         file: ./Dockerfile
+        args: API_KEY=${{ secrets.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY }}
 
   deploy:
     runs-on: ubuntu-latest
