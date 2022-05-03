@@ -1,7 +1,8 @@
-FROM node:latest as build-stage
-ENV NODE_ENV development
-
 ARG API_KEY
+FROM node:latest as build-stage
+ARG API_KEY
+
+ENV NODE_ENV development
 ENV REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY $API_KEY
 
 # set working directory
@@ -25,7 +26,6 @@ FROM nginx:latest as production
 ENV NODE_ENV production
 
 ARG TZ=Europe/London
-ARG API_KEY
 ENV REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY $API_KEY
 ENV TZ=$TZ
 ENV DEBIAN_FRONTEND=noninteractive
