@@ -5,8 +5,6 @@ import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-j
 import { WordsProvider } from './wordsContext';
 
 const App = () => {
-  console.log(process.env)
-
 
   return (
     <div className="App">
