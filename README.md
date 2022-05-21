@@ -2,7 +2,7 @@
 
 Small single page application help solving [wordle](https://www.nytimes.com/games/wordle/index.html) problems. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![Build and deploy container app to Azure Web App - wh](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml/badge.svg)](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml)
+[![Build and Deploy](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml/badge.svg)](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml)
 
 ## Available Scripts
 
