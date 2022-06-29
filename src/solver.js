@@ -3,7 +3,7 @@ import React from "react"
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 import Word from "./word";
-import { useWords } from "./wordsContext";
+import { useWords } from "./context/wordsContext";
 import { reactPlugin } from './appInsights';
 import { Row } from "react-bootstrap";
 
