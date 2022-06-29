@@ -2,7 +2,7 @@ import './App.css';
 import Solver from './solver';
 import { reactPlugin } from "./appInsights";
 import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
-import { WordsProvider } from './wordsContext';
+import { WordsProvider } from './context/wordsContext';
 
 const App = () => {
 
