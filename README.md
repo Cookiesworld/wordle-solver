@@ -1,6 +1,6 @@
 # Wordle helper
 
-Small single page application help solving [wordle](https://www.nytimes.com/games/wordle/index.html) problems. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Small single page application help solving [wordle](https://www.nytimes.com/games/wordle/index.html) problems. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can view the [demo version here](https://wh.azurewebsites.net/)
 
 [![Build and Deploy](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml/badge.svg)](https://github.com/Cookiesworld/wordle-solver/actions/workflows/master_wh.yml)
 
