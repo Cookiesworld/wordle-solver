@@ -7,13 +7,23 @@ export default function LetterInput({ setLetters, letters, label, maxLength }) {
                 data-testid="letter-input"
                 type="text"
                 value={letters}
-                onChange={(e) => setLetters(e.target.value)}
                 pattern="[a-zA-Z]*"
                 title="Enter letters"
                 maxLength={maxLength}
+                onChange={(e) => handleChange(e, setLetters)}
             />
         </div>
     )
 }
 
+const handleChange = (e, setLetters) => {
+    //setValidated(e.currentTarget.value);
+    // custom validation logic here
+    if (/^[a-zA-Z]*$/.test(e.currentTarget.value)) {
+        e.currentTarget.setCustomValidity('')
+        setLetters(e.currentTarget.value)
+    } else {
+        e.currentTarget.setCustomValidity('Field must contain \'Characters only\'');
+    }
+}
 
