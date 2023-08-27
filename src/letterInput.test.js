@@ -1,7 +1,7 @@
 // hello.test.js
 
 import React from "react";
-import { render, screen, unmountComponentAtNode } from '@testing-library/react';;
+import { render, screen } from '@testing-library/react';;
 import { act } from "react-dom/test-utils";
 
 
@@ -21,9 +21,8 @@ afterEach(() => {
 });
 
 it("renders with letters", () => {
-    act(() => {
-        render(<LetterInput label='test' />, container);
-    });
+    render(<LetterInput label='test' />, container);
+
     const inputEl = screen.getByTestId("letter-input");
     expect(inputEl).toBeInTheDocument();
     expect(inputEl).toHaveAttribute("type", "text");
