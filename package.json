@@ -49,6 +49,6 @@
     "nth-check": ">=2.0.1"
   },
   "overrides": {
-    "autoprefixer": "10.4.5"
+    "autoprefixer": "10.4.15"
   }
 }
