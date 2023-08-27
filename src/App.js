@@ -16,10 +16,6 @@ const App = () => {
           <Solver />
         </WordsProvider>
       </AppInsightsErrorBoundary>
-
-      <footer>
-        <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
-      </footer>
     </div>
   );
 }
