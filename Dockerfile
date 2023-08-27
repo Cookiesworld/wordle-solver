@@ -14,7 +14,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
 COPY ["package.json", "package-lock.json", "./"]
 
-RUN npm install --legacy-peer-deps --omit=dev
+RUN npm install --legacy-peer-deps 
 
 # add app
 COPY . .
