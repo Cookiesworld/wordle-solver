@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.x, 18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -42,19 +42,26 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Log in to registry
-        uses: docker/login-action@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          registry: https://cookie.azurecr.io/
-          username: ${{ secrets.AzureAppService_ContainerUsername_2de0e5fe1f1543c28eaf7ffea7447ea7 }}
-          password: ${{ secrets.AzureAppService_ContainerPassword_efa7559edde243f38c989528e8de4248 }}
-
-      - name: Build and push container image to registry
-        uses: docker/build-push-action@v2
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          push: true
-          tags: cookie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2de0e5fe1f1543c28eaf7ffea7447ea7 }}/wordle-node:${{ github.sha }}
+          images: cookiesworld/apps
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
           file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: API_KEY=${{ secrets.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY }}
 
   deploy:
