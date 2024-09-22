@@ -1,33 +1,16 @@
-// hello.test.js
 
 import React from "react";
-import { render, screen } from '@testing-library/react';;
-import { act } from "react-dom/test-utils";
-
+import { render, screen } from "@testing-library/react";
+import { expect, it } from "vitest";
 
 import LetterInput from "./letterInput";
 
-let container = null;
-beforeEach(() => {
-    // setup a DOM element as a render target
-    container = document.createElement("div");
-    document.body.appendChild(container);
-});
-
-afterEach(() => {
-    // cleanup on exiting
-    container.remove();
-    container = null;
-});
-
 it("renders with letters", () => {
-    render(<LetterInput label='test' />, container);
+    render(<LetterInput label='test' />);
 
     const inputEl = screen.getByTestId("letter-input");
     expect(inputEl).toBeInTheDocument();
     expect(inputEl).toHaveAttribute("type", "text");
 
-    const labelEl = screen.getByTestId("letter-label");
-    expect(labelEl).toBeInTheDocument();
-    expect(labelEl.textContent).toBe("test ");
+    expect(screen.getByLabelText("test"));
 });
