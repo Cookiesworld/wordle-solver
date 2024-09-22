@@ -1,5 +1,4 @@
 import { withAITracking } from "@microsoft/applicationinsights-react-js";
-import React from "react";
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 

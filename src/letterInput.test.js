@@ -1,9 +1,6 @@
-
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { expect, it } from "vitest";
-
 import LetterInput from "./letterInput";
+import { it, expect } from "vitest";
 
 it("renders with letters", () => {
     render(<LetterInput label='test' />);
