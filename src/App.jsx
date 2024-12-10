@@ -1,7 +1,5 @@
 import "./App.css";
 import Solver from "./solver";
-import { reactPlugin } from "./appInsights";
-import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
 import { WordsProvider } from "./context/wordsContext";
 import Words from "./words";
 import Container from "react-bootstrap/Container";
@@ -25,15 +23,10 @@ const App = () => {
       <header className="App-header">
         <h1>Wordle Helper</h1>
       </header>
-      <AppInsightsErrorBoundary
-        onError={() => <h1>Something went wrong</h1>}
-        appInsights={reactPlugin}
-      >
-        <WordsProvider>
-          <Solver />
-          <Words />
-        </WordsProvider>
-      </AppInsightsErrorBoundary>
+      <WordsProvider>
+        <Solver />
+        <Words />
+      </WordsProvider>
     </div>
   );
 };

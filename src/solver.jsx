@@ -1,9 +1,7 @@
-import { withAITracking } from "@microsoft/applicationinsights-react-js";
 import LetterInput from "./letterInput";
 import SingleLetterInput from "./singleLetterInput";
 
 import { useWords } from "./context/wordsContext";
-import { reactPlugin } from "./appInsights";
 
 const Solver = () => {
   const { words, dispatch } = useWords();
@@ -85,4 +83,4 @@ const Solver = () => {
   }
 };
 
-export default withAITracking(reactPlugin, Solver);
+export default Solver;

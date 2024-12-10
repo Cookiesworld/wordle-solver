@@ -1,10 +1,14 @@
 import { useWords } from "./context/wordsContext";
 import Word from "./word";
 import { Row } from "react-bootstrap";
+import { useMemo } from "react";
 
 const Words = () => {
   const { words } = useWords();
-  const sortedWords = words.filteredWords.sort();
+  const sortedWords = useMemo(
+    () => words.filteredWords.sort(),
+    [words.filteredWords]
+  );
 
   const rows = [...Array(Math.ceil(sortedWords.length / 6))];
   // chunk the products into the array of rows
