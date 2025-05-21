@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -34,20 +36,41 @@ html, body, #root {
   align-items: center;
   justify-content: center;
   padding: 1rem 1rem 0.5rem 1rem;
-  background: #fff;
+  background: #222;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   margin-bottom: 0.25rem;
-  color: #222;
+  color: #fff;
   z-index: 2;
 }
 
 .App-header h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #222;
+  color: #fff;
   margin: 0.5rem 0 0.25rem 0;
   text-align: center;
   letter-spacing: 0.05em;
+}
+
+.App-header p {
+  color: #e0e0e0;
+}
+
+.App-header a {
+  color: #ffd600;
+  text-decoration: underline;
+}
+
+.App-header a:hover {
+  color: #fff176;
+}
+
+.App-header-desc {
+  max-width: 420px;
+  margin: 0.5rem auto 0;
+  font-size: 1rem;
+  color: #fff;
+  /* Use pure white for maximum contrast on dark background */
 }
 
 h3 {
@@ -59,19 +82,22 @@ h3 {
 
 .main-content {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
+  min-width: 320px;
   margin: 0 auto;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 0 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: max-width 0.2s, padding 0.2s;
 }
 
 /* Center the navbar and header content */
-.Navbar, .App-header {
+.Navbar,
+.App-header {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -84,8 +110,15 @@ h3 {
 }
 
 /* Remove bottom margin from the last child in main-content */
-.main-content > :last-child {
+.main-content> :last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    max-width: 98vw;
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -94,9 +127,10 @@ h3 {
   }
 
   .main-content {
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    max-width: 100%;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    max-width: 100vw;
     border-radius: 0;
     box-shadow: none;
+    min-width: 0;
   }
 }

@@ -24,14 +24,7 @@ const App = () => {
       </Navbar>
       <header className="App-header">
         <h1>Wordle Helper</h1>
-        <p
-          style={{
-            maxWidth: "420px",
-            margin: "0.5rem auto 0",
-            fontSize: "1rem",
-            color: "#444",
-          }}
-        >
+        <p className="App-header-desc">
           This tool helps you solve{" "}
           <a
             href="https://www.nytimes.com/games/wordle/index.html"
