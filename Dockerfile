@@ -2,7 +2,7 @@ ARG API_KEY
 FROM node:latest AS build-stage
 ARG API_KEY
 
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 ENV VITE_APP_APPINSIGHTS_INSTRUMENTATIONKEY=$API_KEY
 
 # set working directory
@@ -27,9 +27,7 @@ RUN npm run build
 FROM nginx:latest AS production
 ENV NODE_ENV=production
 
-ARG API_KEY
 ARG TZ=Europe/London
-ENV VITE_APP_APPINSIGHTS_INSTRUMENTATIONKEY=$API_KEY
 ENV TZ=$TZ
 ENV DEBIAN_FRONTEND=noninteractive
 #RUN -ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
