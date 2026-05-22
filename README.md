@@ -1,8 +1,45 @@
-# React + Vite
+# Wordle Solver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app that helps you solve Wordle puzzles. Live at [wh.johncooke.info](https://wh.johncooke.info). Enter what you know about each letter — correct position, present but wrong position, or not in the word — and the app narrows down the list of possible matches.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 + Vite
+- Bootstrap 5 / React Bootstrap
+- Azure Application Insights (telemetry)
+- Vitest + Testing Library
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+
+### Install & run
+
+```bash
+npm install
+npm run dev
+```
+
+### Run tests
+
+```bash
+npm test
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+## Docker
+
+```bash
+# Development
+npm run ddev
+
+# Production
+npm run prod
+```
